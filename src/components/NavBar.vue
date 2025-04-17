@@ -10,7 +10,7 @@ import ChangeTheme from './ChangeTheme.vue'
       <NavButton :link="`/`" :className="`nav-btn`">Home</NavButton>
       <NavButton :link="`/services`" :className="`nav-btn`">Services</NavButton>
       <NavButton :link="`/feature`" :className="`nav-btn`">Feature</NavButton>
-      <NavButton :link="`/wishes`" :className="`nav-btn`">Whishes</NavButton>
+      <NavButton :link="`/whishes`" :className="`nav-btn`">Whishes</NavButton>
       <NavButton :link="`/FAQ`" :className="`nav-btn`">FAQ</NavButton>
       <ChangeTheme />
     </div>
