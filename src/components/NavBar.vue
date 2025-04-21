@@ -5,7 +5,7 @@ import ChangeTheme from './ChangeTheme.vue'
 
 <template>
   <div class="nav-bar">
-    <img src="/src/assets/logo.svg" alt="" class="nav-bar__icon" />
+    <img src="/src/assets/logo_light.svg" alt="" class="nav-bar__icon" />
     <div class="nav-bar__inner">
       <NavButton :link="`/`" :className="`nav-btn`">Home</NavButton>
       <NavButton :link="`/services`" :className="`nav-btn`">Services</NavButton>
@@ -18,8 +18,12 @@ import ChangeTheme from './ChangeTheme.vue'
 </template>
 
 <style lang="scss">
+@use '/src/assets/_main.scss' as *;
+
 .nav-bar {
-  padding: 0.3rem 2rem;
+  background-color: $main;
+  padding: 0rem 2rem;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,12 +36,15 @@ import ChangeTheme from './ChangeTheme.vue'
     justify-content: space-around;
     .nav-btn {
       text-transform: uppercase;
-      width: 5rem;
+      background-color: $main;
+      color: $accent;
+      font-weight: 600;
+      width: 10rem;
       height: 2.5rem;
-      margin: 0.5rem;
       border: none;
       transition: background-color ease 200ms;
       &:hover {
+        background-color: $contrast;
         cursor: pointer;
       }
     }

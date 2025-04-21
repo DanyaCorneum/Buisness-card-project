@@ -20,25 +20,25 @@
         <li>
           <p>IP Address tracker</p>
           <a href="https://github.com/DanyaCorneum/IP-Address-Tracker"
-            ><img src="/src/assets/logo.svg" alt=""
+            ><img src="/src/assets/logo_light.svg" alt=""
           /></a>
         </li>
         <li>
           <p>Advice app generator</p>
           <a href="https://github.com/DanyaCorneum/advice-generator-app"
-            ><img src="/src/assets/logo.svg" alt=""
+            ><img src="/src/assets/logo_light.svg" alt=""
           /></a>
         </li>
         <li>
           <p>Birtlex</p>
           <a href="https://github.com/DanyaCorneum/Britlex"
-            ><img src="/src/assets/logo.svg" alt=""
+            ><img src="/src/assets/logo_light.svg" alt=""
           /></a>
         </li>
         <li>
           <p>Konstruct</p>
           <a href="https://github.com/DanyaCorneum/Konstruct"
-            ><img src="/src/assets/logo.svg" alt=""
+            ><img src="/src/assets/logo_light.svg" alt=""
           /></a>
         </li>
       </ul>
@@ -47,40 +47,63 @@
 </template>
 
 <style lang="scss">
+@use '/src/assets/_main.scss' as *;
+
 .home {
+  background-color: $main;
+  color: $white;
   .hero-section {
-    background-color: #f5f7fa;
+    position: relative;
     display: flex;
     padding: 100px;
     justify-content: space-between;
+    background: linear-gradient($main, $dark);
     .hero-section__inner {
+      position: relative;
       h2 {
+        text-transform: uppercase;
+        text-align: center;
         font-size: 5rem;
+        font-weight: 300;
       }
       p {
         font-size: 1.5rem;
       }
+      font-weight: 300;
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 0.2rem;
+        background-color: $white;
+        border-radius: 10px;
+      }
     }
-    & img {
+    img {
       height: 30rem;
       width: 30rem;
-      border: 10px solid black;
+      border: 10px solid $dark;
       border-radius: 50%;
-      box-shadow: 0 0 25px black;
       transition: transform 200ms ease-in-out;
       &:hover {
         transform: translateY(-30px);
       }
+      @media screen and (max-width: 1000px) {
+        height: 15rem;
+        width: 15rem;
+      }
     }
   }
   .my-projects {
+    background-color: $dark;
     ul {
       list-style: none;
       display: flex;
       justify-content: space-around;
+      margin: 0;
       li {
+        text-transform: uppercase;
         text-align: center;
-        margin: 20px;
         img {
           width: 50px;
           height: 50px;
