@@ -32,6 +32,10 @@ function startAnimation(e) {
   align-items: center;
   justify-content: center;
   height: 2.5rem;
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
   &:hover {
     cursor: pointer;
   }

@@ -58,18 +58,32 @@
     padding: 100px;
     justify-content: space-between;
     background: linear-gradient($main, $dark);
+    @media screen and (max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3.5rem;
+    }
     .hero-section__inner {
       position: relative;
+      font-weight: 300;
       h2 {
         text-transform: uppercase;
         text-align: center;
         font-size: 5rem;
         font-weight: 300;
+        @media screen and (max-width: 1000px) {
+          font-size: 3rem;
+        }
       }
       p {
         font-size: 1.5rem;
+        @media screen and (max-width: 1000px) {
+          font-size: 1rem;
+          text-align: center;
+        }
       }
-      font-weight: 300;
       &::after {
         position: absolute;
         content: '';
@@ -101,6 +115,10 @@
       display: flex;
       justify-content: space-around;
       margin: 0;
+      padding: 0;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
       li {
         text-transform: uppercase;
         text-align: center;
