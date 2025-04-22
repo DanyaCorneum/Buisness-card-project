@@ -66,9 +66,11 @@ function openDropdown() {
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.237);
-  justify-content: end;
+  background-color: rgba(0, 0, 0, 0.526);
+  animation: show-nav-slide 500ms ease normal forwards;
   .nav-slide__inner {
+    animation: show-nav-slide-inner 800ms ease normal forwards;
+    transition: 200ms ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -79,8 +81,28 @@ function openDropdown() {
     width: 10rem;
     margin: 0;
   }
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+  @keyframes show-nav-slide-inner {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes show-nav-slide {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 }
 .hide {
+  animation: show 500ms ease reverse forwards;
   display: none;
 }
 
