@@ -1,11 +1,11 @@
 <script setup>
-const props = defineEmits(['onClick'])
+defineEmits(['onClick'])
 </script>
 
 <template>
   <div class="dropdown">
     <button @click="$emit('onClick')">
-      <img src="/src/assets/dropdown.svg" alt="" />
+      <img src="/src/assets/dropdown_light.svg" alt="" />
     </button>
   </div>
 </template>
@@ -14,5 +14,8 @@ const props = defineEmits(['onClick'])
 button {
   background-color: transparent;
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
