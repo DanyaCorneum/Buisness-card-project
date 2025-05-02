@@ -34,9 +34,15 @@ function closeDropdown() {
           <img src="/src/assets/cross_white.svg" alt="" />
         </button>
         <NavButton :link="`/`" :className="`nav-btn`" @onClick="closeDropdown">Home</NavButton>
-        <NavButton :link="`/services`" :className="`nav-btn`" @onClick="closeDropdown">Services</NavButton>
-        <NavButton :link="`/feature`" :className="`nav-btn`" @onClick="closeDropdown">Feature</NavButton>
-        <NavButton :link="`/whishes`" :className="`nav-btn`" @onClick="closeDropdown">Whishes</NavButton>
+        <NavButton :link="`/services`" :className="`nav-btn`" @onClick="closeDropdown"
+          >Services</NavButton
+        >
+        <NavButton :link="`/feature`" :className="`nav-btn`" @onClick="closeDropdown"
+          >Feature</NavButton
+        >
+        <NavButton :link="`/whishes`" :className="`nav-btn`" @onClick="closeDropdown"
+          >Whishes</NavButton
+        >
         <NavButton :link="`/FAQ`" :className="`nav-btn`" @onClick="closeDropdown">FAQ</NavButton>
         <ChangeTheme class="change-theme" />
       </div>
@@ -131,10 +137,11 @@ template {
   width: 10rem;
   height: 2.5rem;
   border: none;
-  transition: background-color ease 200ms;
+  transition: ease 200ms;
   &:hover {
     background-color: $contrast;
     cursor: pointer;
+    border-radius: 15px;
   }
 }
 .dropdown {
