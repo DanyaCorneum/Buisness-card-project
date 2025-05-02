@@ -5,7 +5,7 @@ const props = defineProps({
   link: String,
   className: String,
 })
-const emits = defineEmits('onClick')
+defineEmits('onClick')
 </script>
 
 <template>
