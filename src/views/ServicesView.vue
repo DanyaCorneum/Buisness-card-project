@@ -101,11 +101,21 @@ function pervElement() {
   background: linear-gradient($main, $dark);
 }
 .about-services {
+  opacity: 0;
   background-image: url('/src/assets/modern-blue-3840x2160-22197.jpg');
   background-size: cover;
   color: $white;
   min-height: 30rem;
   padding: 1.5rem;
+  animation: appear-service 700ms ease 100ms forwards;
+  @keyframes appear-service {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   .about-services__inner {
     opacity: 0;
     padding: 1.5rem;
@@ -174,7 +184,7 @@ function pervElement() {
   }
 }
 .services-slider {
-  margin: 5rem 0;
+  margin: 7rem 0;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -197,8 +207,11 @@ function pervElement() {
     z-index: 999;
     width: 2.5rem;
     height: 2.5rem;
+    transition: ease 200ms;
     &:hover {
       cursor: pointer;
+      width: 3rem;
+      height: 3rem;
     }
   }
   .right {
@@ -207,7 +220,16 @@ function pervElement() {
 }
 .pages {
   input {
-    border: none;
+    opacity: 0.5;
+    width: 5rem;
+    border: 2px solid wheat;
+    cursor: pointer;
+    &:after {
+      content: 'dfgsg';
+      background-color: aqua;
+      width: 100px;
+      height: 100px;
+    }
   }
 }
 </style>

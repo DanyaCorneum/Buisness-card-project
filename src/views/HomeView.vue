@@ -78,19 +78,45 @@
         }
       }
       p {
+        overflow: hidden;
+        white-space: nowrap;
         font-size: 1.5rem;
+        width: 0px;
+        border-right: 5px solid $white;
+        animation:
+          type 6.5s steps(55, end) forwards,
+          blinking 0.5s step-end infinite;
         @media screen and (max-width: 1000px) {
           font-size: 1rem;
           text-align: center;
         }
-      }
-      &::after {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 0.2rem;
-        background-color: $white;
-        border-radius: 10px;
+        @keyframes type {
+          0% {
+            width: 0;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        @keyframes blinking {
+          from {
+            border-color: transparent;
+          }
+          50% {
+            border-color: $white;
+          }
+          to {
+            border-color: transparent;
+          }
+        }
+        // &::after {
+        //   position: absolute;
+        //   content: '';
+        //   width: 100%;
+        //   height: 0.2rem;
+        //   background-color: $white;
+        //   border-radius: 10px;
+        // }
       }
     }
     img {

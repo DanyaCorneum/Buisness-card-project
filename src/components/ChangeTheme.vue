@@ -41,9 +41,9 @@ function startAnimation(e) {
   }
 }
 .animate {
-  animation: change 900ms none ease;
+  animation: change-theme 900ms none ease;
 }
-@keyframes change {
+@keyframes change-theme {
   from {
     transform: rotate(0deg);
   }

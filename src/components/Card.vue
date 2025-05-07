@@ -21,15 +21,19 @@ const props = defineProps(['class', 'name', 'img', 'btn'])
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  padding: 20px;
   text-align: center;
-  border: 5px solid $white;
+  border: 2px solid $white;
   border-radius: 30px;
   color: $white;
-  padding-bottom: 10px;
+  box-shadow: 0 0 20px white;
   h1 {
+    text-align: start;
     text-transform: uppercase;
+  }
+  p {
+    text-align: start;
   }
   img {
     border-radius: 30px;
@@ -45,10 +49,9 @@ const props = defineProps(['class', 'name', 'img', 'btn'])
     text-transform: uppercase;
     background-color: $dark-accent;
     border-radius: 15px;
-    &:hover {
-      cursor: pointer;
-      background-color: darken($dark-accent, 20%); /* Затемнение исходного цвета */
-    }
+    // &:hover {
+    //   display: none;
+    // }
   }
 }
 </style>
