@@ -136,6 +136,7 @@
   }
   .my-projects {
     background-color: $dark;
+    padding-bottom: 5rem;
     ul {
       list-style: none;
       display: flex;

@@ -86,11 +86,26 @@ function pervElement() {
       <img @click="nextElement" class="arrow right" src="/src/assets/arrow-light.svg" alt="" />
     </div>
     <div class="pages" style="text-align: center">
-      <input v-model="currentSlide" value="1" type="radio" />
-      <input v-model="currentSlide" value="2" type="radio" />
-      <input v-model="currentSlide" value="3" type="radio" />
-      <input v-model="currentSlide" value="4" type="radio" />
-      <input v-model="currentSlide" value="5" type="radio" />
+      <div class="point">
+        <input v-model="currentSlide" value="1" type="radio" />
+        <label for="radio1"></label>
+      </div>
+      <div class="point">
+        <input v-model="currentSlide" value="2" type="radio" />
+        <label for="radio2"></label>
+      </div>
+      <div class="point">
+        <input v-model="currentSlide" value="3" type="radio" />
+        <label for="radio3"></label>
+      </div>
+      <div class="point">
+        <input v-model="currentSlide" value="4" type="radio" />
+        <label for="radio4"></label>
+      </div>
+      <div class="point">
+        <input v-model="currentSlide" value="5" type="radio" />
+        <label for="radio5"></label>
+      </div>
     </div>
   </div>
 </template>
@@ -219,16 +234,46 @@ function pervElement() {
   }
 }
 .pages {
-  input {
-    opacity: 0.5;
-    width: 5rem;
-    border: 2px solid wheat;
-    cursor: pointer;
-    &:after {
-      content: 'dfgsg';
-      background-color: aqua;
-      width: 100px;
-      height: 100px;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+
+  .point {
+    position: relative;
+
+    input {
+      opacity: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+
+      &:checked + label::before {
+        // Меняем цвет, когда радио выбрано
+        background-color: $dark-accent; // Например, синий или любой другой
+      }
+    }
+
+    label {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: $white;
+        border-radius: 50%;
+        transition: background-color 200ms ease;
+      }
     }
   }
 }
