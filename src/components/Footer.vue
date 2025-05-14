@@ -2,7 +2,18 @@
 
 <template>
   <div class="footer">
-    <h1>Just footer</h1>
+    <div class="footer__inner">
+      <h1>DanyaCorneum</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet sed ipsam earum ullam
+        accusantium. Rerum, quidem.
+      </p>
+    </div>
+    <div class="footer__links">
+      <a href="" class="footer-link">Policy</a>
+      <a href="" class="footer-link">Legal</a>
+      <a href="" class="footer-link">Cookies</a>
+    </div>
   </div>
 </template>
 
@@ -11,10 +22,37 @@
 
 .footer {
   background-color: $dark;
-  padding: 5rem 20rem;
   text-align: center;
-  h1 {
-    color: $white;
+  margin: 0;
+  padding: 5rem 0;
+  color: $white;
+  .footer__inner {
+    display: flex;
+    padding: 10px;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      margin: 0;
+    }
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+  }
+  .footer__links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: $white;
+      padding-right: 1rem;
+      border-right: 2px solid $white;
+      &:last-child {
+        border: none;
+      }
+    }
   }
 }
 </style>

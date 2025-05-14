@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import MiniCard from '@/components/MiniCard.vue'
+</script>
 
 <template>
   <div class="home">
@@ -18,28 +20,32 @@
     <div class="my-projects">
       <ul>
         <li>
-          <p>IP Address tracker</p>
-          <a href="https://github.com/DanyaCorneum/IP-Address-Tracker"
-            ><img src="/src/assets/logo_light.svg" alt=""
-          /></a>
+          <a href="https://github.com/DanyaCorneum/Britlex">
+            <MiniCard :class="`project`" :icon="`/src/assets/logo.svg`" :head="`Britlex`" />
+          </a>
         </li>
         <li>
-          <p>Advice app generator</p>
-          <a href="https://github.com/DanyaCorneum/advice-generator-app"
-            ><img src="/src/assets/logo_light.svg" alt=""
-          /></a>
+          <a href="https://github.com/DanyaCorneum/Konstruct">
+            <MiniCard :class="`project`" :icon="`/src/assets/logo.svg`" :head="`Konstruct`" />
+          </a>
         </li>
         <li>
-          <p>Birtlex</p>
-          <a href="https://github.com/DanyaCorneum/Britlex"
-            ><img src="/src/assets/logo_light.svg" alt=""
-          /></a>
+          <a href="https://github.com/DanyaCorneum/IP-Address-Tracker">
+            <MiniCard
+              :class="`project`"
+              :icon="`/src/assets/logo.svg`"
+              :head="`IP Address Tracker`"
+            />
+          </a>
         </li>
         <li>
-          <p>Konstruct</p>
-          <a href="https://github.com/DanyaCorneum/Konstruct"
-            ><img src="/src/assets/logo_light.svg" alt=""
-          /></a>
+          <a href="https://github.com/DanyaCorneum/advice-generator-app">
+            <MiniCard
+              :class="`project`"
+              :icon="`/src/assets/logo.svg`"
+              :head="`Advice Generator App`"
+            />
+          </a>
         </li>
       </ul>
     </div>
@@ -48,6 +54,7 @@
 
 <style lang="scss">
 @use '/src/assets/_main.scss' as *;
+@use '/src/assets/light-theme' as lt;
 
 .home {
   background-color: $main;
@@ -128,7 +135,7 @@
       &:hover {
         transform: translateY(-30px);
       }
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1200px) {
         height: 15rem;
         width: 15rem;
       }
@@ -143,15 +150,23 @@
       justify-content: space-around;
       margin: 0;
       padding: 0;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 970px) {
         flex-direction: column;
+        gap: 4rem;
+        justify-content: center;
+        align-items: center;
       }
       li {
-        text-transform: uppercase;
-        text-align: center;
-        img {
-          width: 50px;
-          height: 50px;
+        a {
+          text-decoration: none;
+          .project {
+            h1 {
+              font-size: 17px;
+            }
+            min-height: 200px;
+            min-width: 200px;
+            background-color: $main;
+          }
         }
       }
     }

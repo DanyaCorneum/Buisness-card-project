@@ -1,17 +1,25 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-const props = defineProps(['class', 'name', 'img', 'btn'])
+const props = defineProps(['class'])
 </script>
 
 <template>
   <div :class="`card ${props.class}`">
-    <img :src="props.img" alt="" />
-    <h1>{{ props.name }}</h1>
+    <slot name="img">
+      <img :src="props.img" alt="" />
+    </slot>
+    <h1>
+      <slot name="header"> name </slot>
+    </h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni est accusamus at illum
-      adipisci!
+      <slot name="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni est accusamus at
+        illum adipisci!
+      </slot>
     </p>
-    <button>{{ props.btn }}</button>
+    <slot name="button">
+      <button>more</button>
+    </slot>
   </div>
 </template>
 
@@ -24,10 +32,10 @@ const props = defineProps(['class', 'name', 'img', 'btn'])
   justify-content: center;
   padding: 20px;
   text-align: center;
-  border: 2px solid $white;
+  border: 4px solid $white;
   border-radius: 30px;
   color: $white;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 40px $white;
   h1 {
     text-align: start;
     text-transform: uppercase;
@@ -38,7 +46,7 @@ const props = defineProps(['class', 'name', 'img', 'btn'])
   img {
     border-radius: 30px;
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
   }
   button {

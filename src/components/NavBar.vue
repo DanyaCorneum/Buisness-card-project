@@ -23,7 +23,6 @@ function closeDropdown() {
         <NavButton :link="`/services`" :className="`nav-btn`">Services</NavButton>
         <NavButton :link="`/information`" :className="`nav-btn`">Information</NavButton>
         <NavButton :link="`/whishes`" :className="`nav-btn`">Whishes</NavButton>
-        <NavButton :link="`/FAQ`" :className="`nav-btn`">FAQ</NavButton>
         <ChangeTheme class="change-theme" />
       </div>
       <Dropdown @onClick="openDropdown" class="dropdown" />
@@ -43,7 +42,6 @@ function closeDropdown() {
         <NavButton :link="`/whishes`" :className="`nav-btn`" @onClick="closeDropdown"
           >Whishes</NavButton
         >
-        <NavButton :link="`/FAQ`" :className="`nav-btn`" @onClick="closeDropdown">FAQ</NavButton>
         <ChangeTheme class="change-theme" />
       </div>
     </div>
@@ -133,12 +131,12 @@ template {
   text-transform: uppercase;
   background-color: $main;
   color: $accent;
-  font-weight: 600;
+  font-weight: 400;
   width: 10rem;
   height: 2.5rem;
   border: none;
   transition: ease 200ms;
-  border-radius: 15px;
+  // border-radius: 15px;
   &:hover {
     background-color: $contrast;
     cursor: pointer;

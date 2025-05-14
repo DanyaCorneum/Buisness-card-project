@@ -1,35 +1,48 @@
 <script setup>
 import Card from '@/components/Card.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const currentSlide = ref(1)
 function nextElement() {
-  document.getElementById(`${currentSlide.value}`).classList.add('hiden-back')
-  currentSlide.value++
-  if (currentSlide.value > 5) {
-    for (let i = 1; i < 5; i++) {
-      document.getElementById(`${i}`).classList.add('hiden')
-      document.getElementById(`${i}`).classList.remove('hiden-back')
-    }
+  let newValue = currentSlide.value + 1
+  if (newValue > 5) {
     currentSlide.value = 1
+  } else {
+    currentSlide.value = newValue
   }
-  document.getElementById(`${currentSlide.value}`).classList.remove('hiden-back')
-  document.getElementById(`${currentSlide.value}`).classList.remove('hiden')
 }
-
 function pervElement() {
-  document.getElementById(`${currentSlide.value}`).classList.add('hiden')
-  currentSlide.value--
-  if (currentSlide.value < 1) {
-    for (let i = 5; i > 1; i--) {
-      document.getElementById(`${i}`).classList.remove('hiden')
-      document.getElementById(`${i}`).classList.add('hiden-back')
-    }
+  let newValue = currentSlide.value - 1
+  if (newValue < 1) {
     currentSlide.value = 5
+  } else {
+    currentSlide.value = newValue
   }
-  document.getElementById(`${currentSlide.value}`).classList.remove('hiden-back')
-  document.getElementById(`${currentSlide.value}`).classList.remove('hiden')
 }
+watch(currentSlide, (newSlide, pervSlide) => {
+  console.log(pervSlide, newSlide)
+  if (newSlide > pervSlide) {
+    document.getElementById(`${pervSlide}`).classList.add('hiden-back')
+    if (pervSlide == 5) {
+      for (let i = 1; i < 5; i++) {
+        document.getElementById(`${i}`).classList.add('hiden')
+        document.getElementById(`${i}`).classList.remove('hiden-back')
+      }
+    }
+    document.getElementById(`${newSlide}`).classList.remove('hiden-back')
+    document.getElementById(`${newSlide}`).classList.remove('hiden')
+  } else {
+    document.getElementById(`${pervSlide}`).classList.add('hiden')
+    if (pervSlide == 1) {
+      for (let i = 5; i > 1; i--) {
+        document.getElementById(`${i}`).classList.remove('hiden')
+        document.getElementById(`${i}`).classList.add('hiden-back')
+      }
+    }
+    document.getElementById(`${newSlide}`).classList.remove('hiden-back')
+    document.getElementById(`${newSlide}`).classList.remove('hiden')
+  }
+})
 </script>
 
 <template>
@@ -47,41 +60,39 @@ function pervElement() {
     <div class="services-slider">
       <img @click="pervElement" class="arrow left" src="/src/assets/arrow-light.svg" alt="" />
       <div class="services-slider__inner">
-        <Card
-          :class="`element`"
-          :name="`programming`"
-          :img="`src/assets/various-computer-equipment-with-programming-code-screens-table-dark-room-cyber-security-concept-copy-space-min.jpg`"
-          :btn="`more`"
-          id="1"
-        />
-        <Card
-          :class="`element hiden`"
-          :name="`ART`"
-          :img="`src/assets/art.jpg`"
-          :btn="`more`"
-          id="2"
-        />
-        <Card
-          :class="`element hiden`"
-          :name="`Design`"
-          :img="`src/assets/design.jpg`"
-          :btn="`more`"
-          id="3"
-        />
-        <Card
-          :class="`element hiden`"
-          :name="`Game`"
-          :img="`src/assets/game.jpg`"
-          :btn="`more`"
-          id="4"
-        />
-        <Card
-          :class="`element hiden`"
-          :name="`Chess`"
-          :img="`src/assets/chess.jpg`"
-          :btn="`more`"
-          id="5"
-        />
+        <Card :class="`element`" :name="`programming`" :btn="`more`" id="1">
+          <template #img>
+            <img
+              src="/src/assets/various-computer-equipment-with-programming-code-screens-table-dark-room-cyber-security-concept-copy-space-min.jpg"
+              alt=""
+            />
+          </template>
+          <template #header>programming</template>
+        </Card>
+        <Card :class="`element hiden`" :name="`ART`" :btn="`more`" id="2">
+          <template #img>
+            <img src="/src/assets/art.jpg" alt="" />
+          </template>
+          <template #header> ART </template>
+        </Card>
+        <Card :class="`element hiden`" id="3"
+          ><template #img>
+            <img src="/src/assets/design.jpg" alt="" />
+          </template>
+          <template #header> Design </template>
+        </Card>
+        <Card :class="`element hiden`" id="4"
+          ><template #img>
+            <img src="/src/assets/game.jpg" alt="" />
+          </template>
+          <template #header> Game </template>
+        </Card>
+        <Card :class="`element hiden`" id="5"
+          ><template #img>
+            <img src="/src/assets/chess.jpg" alt="" />
+          </template>
+          <template #header> Chess </template>
+        </Card>
       </div>
       <img @click="nextElement" class="arrow right" src="/src/assets/arrow-light.svg" alt="" />
     </div>
@@ -215,7 +226,7 @@ function pervElement() {
     .element {
       transition: 200ms ease;
       position: absolute;
-      width: 80%;
+      width: 60%;
     }
   }
   .arrow {
@@ -252,8 +263,7 @@ function pervElement() {
       cursor: pointer;
 
       &:checked + label::before {
-        // Меняем цвет, когда радио выбрано
-        background-color: $dark-accent; // Например, синий или любой другой
+        background-color: $dark-accent;
       }
     }
 
@@ -273,6 +283,7 @@ function pervElement() {
         background-color: $white;
         border-radius: 50%;
         transition: background-color 200ms ease;
+        left: 50%;
       }
     }
   }
