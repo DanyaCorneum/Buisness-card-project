@@ -22,3 +22,8 @@ Ideas for learning:
 The main idea is that all pages have difrent functional for demonstration of diffrent libares and technologes
 
 JetBrains: WebStorm
+
+id 
+guid/uuid 
+gsap.js
+tree.js - 3D

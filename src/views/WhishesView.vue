@@ -1,8 +1,51 @@
 <script setup>
-function placeholder() {
-  console.log('Hello world')
-  const form = document.querySelector('form')
-  form.reset()
+import { ref } from 'vue'
+import axios from 'axios'
+
+const whish = ref('')
+const listOfWhishes = ref([])
+const currentID = ref(0)
+
+axios
+  .get('http://localhost:3001/current-id')
+  .then((res) => (currentID.value = res.data))
+  .catch(console.log)
+
+console.log(currentID.value)
+
+axios
+  .get('http://localhost:3001/whishes/')
+  .then((res) => (listOfWhishes.value = res.data))
+  .catch(console.log)
+
+async function addWhish() {
+  const newWish = {
+    content: whish.value,
+    likes: 0,
+    id: currentID.value,
+  }
+  try {
+    currentID.value++
+    await axios.post('http://localhost:3001/whishes/', newWish)
+    await axios.put('http://localhost:3001/current-id/', currentID.value)
+
+    listOfWhishes.value = [newWish, ...listOfWhishes.value]
+    await axios.get('http://localhost:3001/whishes/')
+
+    whish.value = ''
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function likeWhish(e) {
+  const idOfWhish = e.target.closest('li').id
+  console.log(idOfWhish)
+  // for (let i = 0; i < listOfWhishes.value.length-1; i++){
+  //   if (idOfWhish === listOfWhishes[i].id){
+  //     pass
+  //   }
+  // }
 }
 </script>
 
@@ -10,30 +53,15 @@ function placeholder() {
   <div class="whishes">
     <h1>Whishes</h1>
     <p>You can add some wishes and like others</p>
-    <form>
-      <input type="text" />
-      <button @click.prevent="placeholder">Add</button>
+    <form @submit.prevent="addWhish">
+      <input v-model="whish" type="text" />
+      <button>Add</button>
     </form>
     <ul>
-      <li>
-        <p>Placeholder</p>
-        <span><img src="/src/assets/like.svg" alt="" /></span>
-        <span>0</span>
-      </li>
-      <li>
-        <p>Placeholder</p>
-        <span><img src="/src/assets/like.svg" alt="" /></span>
-        <span>0</span>
-      </li>
-      <li>
-        <p>Placeholder</p>
-        <span><img src="/src/assets/like.svg" alt="" /></span>
-        <span>0</span>
-      </li>
-      <li>
-        <p>Placeholder</p>
-        <span><img src="/src/assets/like.svg" alt="" /></span>
-        <span>0</span>
+      <li class="appear-wish" v-for="w in listOfWhishes" :key="w.id" :id="w.id">
+        <p>{{ w.content }}</p>
+        <span @click="likeWhish"><img src="/src/assets/like.svg" alt="" /></span>
+        <span>{{ w.likes }}</span>
       </li>
     </ul>
   </div>
@@ -49,6 +77,8 @@ function placeholder() {
   align-items: center;
   color: $white;
   form {
+    animation: show-form 400ms ease-in-out 0.1s forwards;
+    opacity: 0;
     input {
       height: 3rem;
       width: 25rem;
@@ -67,6 +97,14 @@ function placeholder() {
       &:hover {
         border-color: $dark;
         background-color: $dark;
+      }
+    }
+    @keyframes show-form {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   }
@@ -88,6 +126,7 @@ function placeholder() {
       border-radius: 5px;
       min-width: 500px;
       position: relative;
+
       span img {
         &:hover {
           cursor: pointer;
@@ -96,7 +135,6 @@ function placeholder() {
       * {
         margin: 0 0.5rem;
       }
-      $angle: 0deg;
       &::after,
       &::before {
         content: '';
