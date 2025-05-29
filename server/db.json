@@ -1,5 +1,4 @@
 {
-  "current-id": 0,
   "whishes": [
     {
       "id": "0",
@@ -97,8 +96,33 @@
       "likes": 0
     },
     {
-      "id": 0,
+      "id": "0",
       "content": "sabsdfbsd",
+      "likes": 0
+    },
+    {
+      "id": 0,
+      "content": "zsdv",
+      "likes": 0
+    },
+    {
+      "id": 1,
+      "content": "zsdvsdfv",
+      "likes": 0
+    },
+    {
+      "id": 0,
+      "content": "dfgb",
+      "likes": 0
+    },
+    {
+      "id": 1,
+      "content": "dfgb",
+      "likes": 0
+    },
+    {
+      "id": 2,
+      "content": "dfgj",
       "likes": 0
     }
   ]

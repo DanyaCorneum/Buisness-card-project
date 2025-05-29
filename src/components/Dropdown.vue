@@ -1,11 +1,16 @@
 <script setup>
+import { useTheme } from '@/stores/changeTheme'
 defineEmits(['onClick'])
+const theme = useTheme()
 </script>
 
 <template>
   <div class="dropdown">
     <button @click="$emit('onClick')">
-      <img src="/src/assets/dropdown_light.svg" alt="" />
+      <img
+        :src="`${theme.getTheme === 'dark' ? '/src/assets/dropdown_light.svg' : '/src/assets/dropdown.svg'}`"
+        alt=""
+      />
     </button>
   </div>
 </template>

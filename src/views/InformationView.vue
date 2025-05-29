@@ -1,10 +1,13 @@
 <script setup>
 import MiniCard from '@/components/MiniCard.vue'
 import Card from '@/components/Card.vue'
+import { useTheme } from '@/stores/changeTheme'
+
+const theme = useTheme()
 </script>
 
 <template>
-  <div class="info">
+  <div :class="`info ${theme.getTheme === 'dark' ? '' : 'info-light'}`">
     <div class="info__text">
       <h1>Get ready</h1>
       <p>
@@ -169,6 +172,13 @@ import Card from '@/components/Card.vue'
     &:hover {
       background-color: #134370;
     }
+  }
+}
+.info-light {
+  background: radial-gradient(circle, rgba(19, 67, 112, 0.86) 0%, $white 100%);
+  color: $dark;
+  .info__text {
+    color: $dark;
   }
 }
 </style>

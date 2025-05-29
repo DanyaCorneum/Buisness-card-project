@@ -27,7 +27,6 @@ async function addWhish() {
   try {
     currentID.value++
     await axios.post('http://localhost:3001/whishes/', newWish)
-    await axios.put('http://localhost:3001/current-id/', currentID.value)
 
     listOfWhishes.value = [newWish, ...listOfWhishes.value]
     await axios.get('http://localhost:3001/whishes/')

@@ -1,6 +1,7 @@
 <script setup>
 import Card from '@/components/Card.vue'
 import { ref, watch } from 'vue'
+import { useTheme } from '@/stores/changeTheme'
 
 const currentSlide = ref(1)
 function nextElement() {
@@ -43,10 +44,12 @@ watch(currentSlide, (newSlide, pervSlide) => {
     document.getElementById(`${newSlide}`).classList.remove('hiden')
   }
 })
+
+const theme = useTheme()
 </script>
 
 <template>
-  <div class="services">
+  <div :class="`services ${theme.getTheme === 'dark' ? '' : 'services-light'}`">
     <div class="about-services">
       <div class="about-services__inner">
         <h1>Services</h1>
@@ -125,6 +128,9 @@ watch(currentSlide, (newSlide, pervSlide) => {
 @use '/src/assets/main' as *;
 .services {
   background: linear-gradient($main, $dark);
+}
+.services-light {
+  background: linear-gradient($main, $white);
 }
 .about-services {
   opacity: 0;

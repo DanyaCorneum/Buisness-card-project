@@ -2,6 +2,7 @@
 import NavButton from './NavButton.vue'
 import ChangeTheme from './ChangeTheme.vue'
 import Dropdown from './Dropdown.vue'
+import { useTheme } from '@/stores/changeTheme'
 
 function openDropdown() {
   const dropdown = document.querySelector('.nav-slide')
@@ -12,34 +13,73 @@ function closeDropdown() {
   dropdown.classList.toggle('hide')
   console.log('hide-animation')
 }
+
+const theme = useTheme()
 </script>
 
 <template>
   <div class="navigation">
-    <div class="nav-bar">
-      <img src="/src/assets/logo_light.svg" alt="" class="nav-bar__icon" />
+    <div :class="`nav-bar ${theme.getTheme === 'dark' ? '' : 'nav-bar-light'}`">
+      <img
+        :src="`${theme.getTheme === 'dark' ? '/src/assets/logo_light.svg' : '/src/assets/logo.svg'}`"
+        alt=""
+        class="nav-bar__icon"
+      />
       <div class="nav-bar__inner">
-        <NavButton :link="`/`" :className="`nav-btn`">Home</NavButton>
-        <NavButton :link="`/services`" :className="`nav-btn`">Services</NavButton>
-        <NavButton :link="`/information`" :className="`nav-btn`">Information</NavButton>
-        <NavButton :link="`/whishes`" :className="`nav-btn`">Whishes</NavButton>
+        <NavButton
+          :link="`/`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          >Home</NavButton
+        >
+        <NavButton
+          :link="`/services`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          >Services</NavButton
+        >
+        <NavButton
+          :link="`/information`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          >Information</NavButton
+        >
+        <NavButton
+          :link="`/whishes`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          >Whishes</NavButton
+        >
         <ChangeTheme class="change-theme" />
       </div>
       <Dropdown @onClick="openDropdown" class="dropdown" />
     </div>
-    <div class="nav-slide hide">
-      <div class="nav-slide__inner">
+    <div :class="`nav-slide hide`">
+      <div :class="`nav-slide__inner ${theme.getTheme === 'dark' ? '' : 'nav-slide__inner-light'}`">
         <button class="exit" @click="closeDropdown">
-          <img src="/src/assets/cross_white.svg" alt="" />
+          <img
+            :src="`${theme.getTheme === 'dark' ? '/src/assets/cross_white.svg' : '/src/assets/cross.svg'}`"
+            alt=""
+          />
         </button>
-        <NavButton :link="`/`" :className="`nav-btn`" @onClick="closeDropdown">Home</NavButton>
-        <NavButton :link="`/services`" :className="`nav-btn`" @onClick="closeDropdown"
+        <NavButton
+          :link="`/`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          @onClick="closeDropdown"
+          >Home</NavButton
+        >
+        <NavButton
+          :link="`/services`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          @onClick="closeDropdown"
           >Services</NavButton
         >
-        <NavButton :link="`/information`" :className="`nav-btn`" @onClick="closeDropdown"
+        <NavButton
+          :link="`/information`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          @onClick="closeDropdown"
           >information</NavButton
         >
-        <NavButton :link="`/whishes`" :className="`nav-btn`" @onClick="closeDropdown"
+        <NavButton
+          :link="`/whishes`"
+          :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
+          @onClick="closeDropdown"
           >Whishes</NavButton
         >
         <ChangeTheme class="change-theme" />
@@ -89,6 +129,7 @@ template {
   background-color: rgba(0, 0, 0, 0.526);
   animation: show-nav-slide 500ms ease normal forwards;
   .nav-slide__inner {
+    background: $main;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -96,7 +137,9 @@ template {
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
-    background-color: $main;
+  }
+  .nav-slide__inner-light {
+    background: $white;
   }
   .change-theme {
     width: 10rem;
@@ -126,7 +169,6 @@ template {
   animation: show 500ms ease reverse forwards;
   display: none;
 }
-
 .nav-btn {
   text-transform: uppercase;
   background-color: $main;
@@ -136,7 +178,6 @@ template {
   height: 2.5rem;
   border: none;
   transition: ease 200ms;
-  // border-radius: 15px;
   &:hover {
     background-color: $contrast;
     cursor: pointer;
@@ -147,5 +188,11 @@ template {
   @media screen and (max-width: 1000px) {
     display: inline;
   }
+}
+.nav-bar-light {
+  background-color: $white;
+}
+.nav-btn-light {
+  background-color: $white;
 }
 </style>

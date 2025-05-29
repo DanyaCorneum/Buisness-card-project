@@ -16,7 +16,7 @@ function startAnimation(e) {
 <template>
   <button @click="startAnimation" class="change-theme">
     <img
-      :src="`${theme.theme === 'black' ? '/src/assets/gear.svg' : '/src/assets/gear_white.svg'}`"
+      :src="`${theme.theme === 'light' ? '/src/assets/gear.svg' : '/src/assets/gear_white.svg'}`"
       alt="gear"
     />
   </button>

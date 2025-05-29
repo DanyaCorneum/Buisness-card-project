@@ -1,10 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { useTheme } from '@/stores/changeTheme'
 const props = defineProps(['class'])
+const theme = useTheme()
 </script>
 
 <template>
-  <div :class="`card ${props.class}`">
+  <div :class="`card ${props.class} ${theme.getTheme === 'dark' ? '' : 'card-light'}`">
     <slot name="img">
       <img :src="props.img" alt="" />
     </slot>
@@ -61,5 +63,11 @@ const props = defineProps(['class'])
     //   display: none;
     // }
   }
+}
+.card-light {
+  background-color: $white;
+  color: $dark;
+  box-shadow: 0 0 40px $dark;
+  border-color: $dark;
 }
 </style>

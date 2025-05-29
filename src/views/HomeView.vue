@@ -1,10 +1,13 @@
 <script setup>
 import MiniCard from '@/components/MiniCard.vue'
+import { useTheme } from '@/stores/changeTheme'
+
+const theme = useTheme()
 </script>
 
 <template>
   <div class="home">
-    <div class="hero-section">
+    <div :class="`hero-section ${theme.getTheme === 'dark' ? '' : 'hero-section-light'}`">
       <div class="hero-section__inner">
         <h2>About me</h2>
         <p>My name is Daniil and I am a beginner Software Engineer</p>
@@ -17,7 +20,7 @@ import MiniCard from '@/components/MiniCard.vue'
         />
       </a>
     </div>
-    <div class="my-projects">
+    <div :class="`my-projects ${theme.getTheme === 'dark' ? '' : 'my-projects-light'}`">
       <ul>
         <li>
           <a href="https://github.com/DanyaCorneum/Britlex">
@@ -54,7 +57,6 @@ import MiniCard from '@/components/MiniCard.vue'
 
 <style lang="scss">
 @use '/src/assets/_main.scss' as *;
-@use '/src/assets/light-theme' as lt;
 
 .home {
   background-color: $main;
@@ -141,8 +143,9 @@ import MiniCard from '@/components/MiniCard.vue'
       }
     }
   }
+
   .my-projects {
-    background-color: $dark;
+    background: $dark;
     padding-bottom: 5rem;
     ul {
       list-style: none;
@@ -165,11 +168,21 @@ import MiniCard from '@/components/MiniCard.vue'
             }
             min-height: 200px;
             min-width: 200px;
-            background-color: $main;
           }
         }
       }
     }
+  }
+  .hero-section-light {
+    background: $white;
+    color: $dark;
+    & * {
+      color: $dark;
+    }
+  }
+  .my-projects-light {
+    background: linear-gradient($white, $main);
+    color: $main;
   }
 }
 </style>

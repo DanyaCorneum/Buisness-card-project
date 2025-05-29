@@ -1,9 +1,11 @@
 <script setup>
+import { useTheme } from '@/stores/changeTheme'
 const props = defineProps(['icon', 'text', 'head'])
+const theme = useTheme()
 </script>
 
 <template>
-  <a class="mini-card">
+  <a :class="`mini-card ${theme.getTheme === 'dark' ? '' : 'mini-card-light'}`">
     <div class="icon">
       <slot name="img">
         <img :src="props.icon" alt="lol" />
@@ -28,10 +30,10 @@ const props = defineProps(['icon', 'text', 'head'])
 
 .mini-card {
   opacity: 0;
-  background-color: $dark;
+  background: $dark;
+  color: $white;
   max-width: 200px;
   max-height: 500px;
-  color: $white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,5 +85,9 @@ const props = defineProps(['icon', 'text', 'head'])
   to {
     opacity: 1;
   }
+}
+.mini-card-light {
+  background: $white;
+  color: $dark;
 }
 </style>
