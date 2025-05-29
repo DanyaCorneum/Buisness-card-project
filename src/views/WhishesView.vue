@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { useTheme } from '@/stores/changeTheme'
 
+const theme = useTheme()
 const whish = ref('')
 const listOfWhishes = ref([])
 const currentID = ref(0)
@@ -36,20 +38,10 @@ async function addWhish() {
     console.error(error)
   }
 }
-
-async function likeWhish(e) {
-  const idOfWhish = e.target.closest('li').id
-  console.log(idOfWhish)
-  // for (let i = 0; i < listOfWhishes.value.length-1; i++){
-  //   if (idOfWhish === listOfWhishes[i].id){
-  //     pass
-  //   }
-  // }
-}
 </script>
 
 <template>
-  <div class="whishes">
+  <div :class="`whishes ${theme.getTheme === 'dark' ? '' : 'whishes-light'}`">
     <h1>Whishes</h1>
     <p>You can add some wishes and like others</p>
     <form @submit.prevent="addWhish">
@@ -59,7 +51,7 @@ async function likeWhish(e) {
     <ul>
       <li class="appear-wish" v-for="w in listOfWhishes" :key="w.id" :id="w.id">
         <p>{{ w.content }}</p>
-        <span @click="likeWhish"><img src="/src/assets/like.svg" alt="" /></span>
+        <span @click="() => console.log('Test')"><img src="/src/assets/like.svg" alt="" /></span>
         <span>{{ w.likes }}</span>
       </li>
     </ul>
@@ -165,6 +157,14 @@ async function likeWhish(e) {
         }
       }
     }
+  }
+}
+
+.whishes-light {
+  color: $dark;
+  background-color: $white;
+  .appear-wish {
+    background-color: $light;
   }
 }
 </style>

@@ -101,28 +101,38 @@
       "likes": 0
     },
     {
-      "id": 0,
+      "id": "0",
       "content": "zsdv",
       "likes": 0
     },
     {
-      "id": 1,
+      "id": "1",
       "content": "zsdvsdfv",
       "likes": 0
     },
     {
-      "id": 0,
+      "id": "0",
       "content": "dfgb",
       "likes": 0
     },
     {
-      "id": 1,
+      "id": "1",
       "content": "dfgb",
       "likes": 0
     },
     {
-      "id": 2,
+      "id": "2",
       "content": "dfgj",
+      "likes": 0
+    },
+    {
+      "id": 0,
+      "content": "afadf",
+      "likes": 0
+    },
+    {
+      "id": 0,
+      "content": "hdgfgd",
       "likes": 0
     }
   ]
