@@ -175,7 +175,7 @@ const theme = useTheme()
   }
 }
 .info-light {
-  background: radial-gradient(circle, rgba(19, 67, 112, 0.86) 0%, $white 100%);
+  background: radial-gradient(circle, rgba(19, 67, 112, 0.86) 0%, $light 100%);
   color: $dark;
   .info__text {
     color: $dark;

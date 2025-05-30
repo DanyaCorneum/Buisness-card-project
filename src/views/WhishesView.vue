@@ -117,54 +117,24 @@ async function addWhish() {
       border-radius: 5px;
       min-width: 500px;
       position: relative;
-
-      span img {
-        &:hover {
-          cursor: pointer;
-        }
+      z-index: 1;
+      box-shadow: 0 0 40px $accent;
+    }
+    span img {
+      &:hover {
+        cursor: pointer;
       }
-      * {
-        margin: 0 0.5rem;
-      }
-      &::after,
-      &::before {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-image: conic-gradient($dark-accent, $white, $accent, $dark-accent);
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        z-index: -1;
-        padding: 0.2rem;
-        border-radius: 5px;
-      }
-      &::before {
-        filter: blur(1rem);
-        opacity: 0.2;
-        animation: 3s pulse linear infinite;
-      }
-      @keyframes pulse {
-        from {
-          opacity: 0.2;
-        }
-        50% {
-          opacity: 1;
-        }
-        to {
-          opacity: 0.2;
-        }
-      }
+    }
+    * {
+      margin: 0 0.5rem;
     }
   }
 }
 
 .whishes-light {
-  color: $dark;
-  background-color: $white;
+  background-color: $light;
   .appear-wish {
-    background-color: $light;
+    background-color: $contrast;
   }
 }
 </style>

@@ -126,13 +126,28 @@
       "likes": 0
     },
     {
-      "id": 0,
+      "id": "0",
       "content": "afadf",
       "likes": 0
     },
     {
-      "id": 0,
+      "id": "0",
       "content": "hdgfgd",
+      "likes": 0
+    },
+    {
+      "id": 0,
+      "content": "fvdzbvxb",
+      "likes": 0
+    },
+    {
+      "id": 1,
+      "content": "cxvncvxn",
+      "likes": 0
+    },
+    {
+      "id": 2,
+      "content": "xcvb",
       "likes": 0
     }
   ]

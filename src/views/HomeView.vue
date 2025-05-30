@@ -174,14 +174,14 @@ const theme = useTheme()
     }
   }
   .hero-section-light {
-    background: $white;
+    background: $light;
     color: $dark;
     & * {
       color: $dark;
     }
   }
   .my-projects-light {
-    background: linear-gradient($white, $main);
+    background: linear-gradient($light, $main);
     color: $main;
   }
 }

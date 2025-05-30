@@ -139,7 +139,7 @@ template {
     gap: 3.5rem;
   }
   .nav-slide__inner-light {
-    background: $white;
+    background: $light;
   }
   .change-theme {
     width: 10rem;
@@ -190,9 +190,9 @@ template {
   }
 }
 .nav-bar-light {
-  background-color: $white;
+  background-color: $light;
 }
 .nav-btn-light {
-  background-color: $white;
+  background-color: $light;
 }
 </style>

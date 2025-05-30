@@ -130,7 +130,7 @@ const theme = useTheme()
   background: linear-gradient($main, $dark);
 }
 .services-light {
-  background: linear-gradient($main, $white);
+  background: linear-gradient($main, $light);
 }
 .about-services {
   opacity: 0;

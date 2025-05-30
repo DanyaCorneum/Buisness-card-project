@@ -1,7 +1,7 @@
 $dark: #131515;
 $main: #252b2b;
 $contrast: #4c4f54;
-$light: #727272;
+$light: #828890;
 $white: #dddddd;
 $accent: #60b2ec;
 $dark-accent: #076dcc;
@@ -10,4 +10,5 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   background-color: $main;
+  z-index: -10;
 }

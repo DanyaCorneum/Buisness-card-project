@@ -87,7 +87,7 @@ const theme = useTheme()
   }
 }
 .mini-card-light {
-  background: $white;
+  background: $light;
   color: $dark;
 }
 </style>
