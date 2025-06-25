@@ -1,41 +1,29 @@
-# buisness card
+# Buisness card
 
-This template should help get you started developing with Vue 3 in Vite.
+Ideas for learning:
 
-## Recommended IDE Setup
+- Home page
+- Whishes page - work with json-server and axios
+- Services Page - 1: Big image with info anf btn; 2: Slider with links
+  ![alt text](/public/services.jpg)
+- Features Page - bloks with info and images
+  ![alt text](/public/features.jpg)
+- FAQ - ![alt text](/public/faq.jpg)
+- ChangeTheme btn - work with pinia and scss
+- Localization
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Ideas for components 
 
-## Customize configuration
+1) NavBar
+2) Dropdown
+3) ChangeTheme
+4) Footer
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+The main idea is that all pages have difrent functional for demonstration of diffrent libares and technologes
 
-## Project Setup
+JetBrains: WebStorm
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+id 
+guid/uuid 
+gsap.js
+tree.js - 3D

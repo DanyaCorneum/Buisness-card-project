@@ -5,10 +5,11 @@ const props = defineProps({
   link: String,
   className: String,
 })
+defineEmits('onClick')
 </script>
 
 <template>
   <RouterLink :to="props.link">
-    <button :class="`${props.className}`"><slot /></button>
+    <button @click="$emit('onClick')" :class="`${props.className}`"><slot /></button>
   </RouterLink>
 </template>
