@@ -59,15 +59,10 @@ const theme = useTheme()
     text-transform: uppercase;
     background-color: $dark-accent;
     border-radius: 15px;
-    // &:hover {
-    //   display: none;
-    // }
   }
 }
 .card-light {
   background-color: $white;
   color: $dark;
   box-shadow: 0 0 40px $dark;
-  border-color: $dark;
-}
-</style>
+  border-color: $dark;}</style>

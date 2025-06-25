@@ -9,8 +9,8 @@ const theme = useTheme()
   <div class="home">
     <div :class="`hero-section ${theme.getTheme === 'dark' ? '' : 'hero-section-light'}`">
       <div class="hero-section__inner">
-        <h2>About me</h2>
-        <p>My name is Daniil and I am a beginner Software Engineer</p>
+        <h2>{{ $t('HomeView.heroTitle') }}</h2>
+        <p>{{ $t('HomeView.heroInner') }}</p>
       </div>
       <a href="https://github.com/DanyaCorneum">
         <img

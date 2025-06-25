@@ -9,70 +9,69 @@ const theme = useTheme()
 <template>
   <div :class="`info ${theme.getTheme === 'dark' ? '' : 'info-light'}`">
     <div class="info__text">
-      <h1>Get ready</h1>
+      <h1>{{ $t('InformationView.infoTextTitle') }}</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
-        esse autem aut voluptatum dolorum inventore amet, corporis dolorem magnam atque enim quidem
-        quam necessitatibus dolore.
+        {{ $t('InformationView.infoTextInner') }}
       </p>
       <div class="info__cards"></div>
-      <button>Go</button>
+      <button>{{ $t('InformationView.Button') }}</button>
     </div>
     <div class="info-cards">
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
       <MiniCard>
         <template #img>
           <img src="/src/assets/bag-check.svg" alt="" />
         </template>
-        <template #header> lol </template>
-        <template #text
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam expedita aliquam est
+        <template #header>  {{ $t('InformationView.MiniCardTitle') }} </template>
+        <template #text>
+          {{ $t('InformationView.MiniCardText') }}
         </template>
       </MiniCard>
+
     </div>
     <Card :class="`info-card`"
       ><template #img>

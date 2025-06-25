@@ -5,14 +5,13 @@
     <div class="footer__inner">
       <h1>DanyaCorneum</h1>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet sed ipsam earum ullam
-        accusantium. Rerum, quidem.
+        {{ $t('Footer.MainText') }}
       </p>
     </div>
     <div class="footer__links">
-      <a href="" class="footer-link">Policy</a>
-      <a href="" class="footer-link">Legal</a>
-      <a href="" class="footer-link">Cookies</a>
+      <a href="" class="footer-link"> {{ $t('Footer.Policy') }}</a>
+      <a href="" class="footer-link"> {{ $t('Footer.Legal') }}</a>
+      <a href="" class="footer-link"> {{ $t('Footer.Cookies') }}</a>
     </div>
   </div>
 </template>

@@ -21,7 +21,7 @@ const theme = useTheme()
         {{ props.text }}
       </slot>
     </p>
-    <button>More</button>
+    <button>{{ $t('MiniCard.More') }}</button>
   </a>
 </template>
 

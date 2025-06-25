@@ -2,6 +2,7 @@
 import NavButton from './NavButton.vue'
 import ChangeTheme from './ChangeTheme.vue'
 import Dropdown from './Dropdown.vue'
+import ChangeLang from './ChangeLang.vue'
 import { useTheme } from '@/stores/changeTheme'
 
 function openDropdown() {
@@ -29,24 +30,25 @@ const theme = useTheme()
         <NavButton
           :link="`/`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
-          >Home</NavButton
+          >{{ $t('NavBar.Home') }}</NavButton
         >
         <NavButton
           :link="`/services`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
-          >Services</NavButton
+          >{{ $t('NavBar.Services') }}</NavButton
         >
         <NavButton
           :link="`/information`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
-          >Information</NavButton
+          >{{ $t('NavBar.Information') }}</NavButton
         >
         <NavButton
           :link="`/whishes`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
-          >Whishes</NavButton
+          >{{ $t('NavBar.Whishes') }}</NavButton
         >
         <ChangeTheme class="change-theme" />
+        <ChangeLang class="change-lang" />
       </div>
       <Dropdown @onClick="openDropdown" class="dropdown" />
     </div>
@@ -62,27 +64,29 @@ const theme = useTheme()
           :link="`/`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
           @onClick="closeDropdown"
-          >Home</NavButton
+          >{{ $t('NavBar.Home') }}</NavButton
         >
         <NavButton
           :link="`/services`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
           @onClick="closeDropdown"
-          >Services</NavButton
+          >{{ $t('NavBar.Services') }}</NavButton
         >
         <NavButton
           :link="`/information`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
           @onClick="closeDropdown"
-          >information</NavButton
+          >{{ $t('NavBar.Information') }}</NavButton
         >
         <NavButton
           :link="`/whishes`"
           :className="`nav-btn ${theme.getTheme === 'dark' ? '' : 'nav-btn-light'}`"
           @onClick="closeDropdown"
-          >Whishes</NavButton
         >
+          {{ $t('NavBar.Whishes') }}
+        </NavButton>
         <ChangeTheme class="change-theme" />
+        <ChangeLang class="change-lang" />
       </div>
     </div>
   </div>
@@ -101,13 +105,14 @@ template {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  img {
+  .nav-bar__icon {
     width: 3rem;
     height: 3rem;
   }
   .nav-bar__inner {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     @media screen and (max-width: 1000px) {
       display: none;
     }
@@ -116,6 +121,7 @@ template {
 .change-theme {
   margin: 0 1.5rem;
 }
+
 .nav-slide {
   display: flex;
   position: fixed;
@@ -129,21 +135,17 @@ template {
   background-color: rgba(0, 0, 0, 0.526);
   animation: show-nav-slide 500ms ease normal forwards;
   .nav-slide__inner {
+    display: flex;
     background: $main;
     align-items: center;
     justify-content: center;
     position: relative;
     animation: show-nav-slide-inner 800ms ease normal forwards;
-    display: flex;
     flex-direction: column;
     gap: 3.5rem;
   }
   .nav-slide__inner-light {
     background: $light;
-  }
-  .change-theme {
-    width: 10rem;
-    margin: 0;
   }
   @media screen and (min-width: 1000px) {
     display: none;
