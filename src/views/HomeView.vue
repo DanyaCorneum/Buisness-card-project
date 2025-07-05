@@ -1,6 +1,7 @@
 <script setup>
 import MiniCard from '@/components/MiniCard.vue'
 import { useTheme } from '@/stores/changeTheme'
+import ModalWindow from '@/components/ModalWindow.vue'
 
 const theme = useTheme()
 </script>
@@ -11,6 +12,7 @@ const theme = useTheme()
       <div class="hero-section__inner">
         <h2>{{ $t('HomeView.heroTitle') }}</h2>
         <p>{{ $t('HomeView.heroInner') }}</p>
+        <ModalWindow />
       </div>
       <a href="https://github.com/DanyaCorneum">
         <img

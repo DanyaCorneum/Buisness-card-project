@@ -7,9 +7,27 @@ import Footer from './components/Footer.vue'
 <template>
   <body>
     <NavBar />
-    <RouterView />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <Footer />
   </body>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+/* Анимация slide-left */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 200ms linear;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
